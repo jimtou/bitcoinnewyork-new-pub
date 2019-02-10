@@ -18,6 +18,7 @@
 #include "crypto/progpow/endianness.hpp"
 #include "streams.h"
 
+#define ALGORITHM_CHANGE_HEIGHT 550948  //must be same with params
 
 //get block header progpow hash based header, nonce and mix hash
 uint256 getBlockHeaderProgPowHash(const CBlockHeader *pblock)
@@ -43,12 +44,11 @@ uint256 getBlockHeaderProgPowHash(const CBlockHeader *pblock)
 
     //ethash::progpow
     ethash::hash256 
-        ret = ethash::verify_final_progpow_hash(header_hash, mix, nonce);
+        ret = ethash::verify_final_progpow_hash_entry(header_hash, mix, nonce, pblock->nHeight);
 
     uint256 r;
-    //memcpy(r.begin(), ret.bytes, 32);
     //ethash hash is always consider as big endian. uint256 is little endian.
-    uint8_t *pp = r.begin();
+    uint8_t *pp = r.begin(); 
     for (int i = 0 ; i < 32; i++) {
         pp[i] = ret.bytes[31-i];
     }

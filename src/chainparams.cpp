@@ -109,6 +109,10 @@ public:
         consensus.ProgPostforkBlock = uint256S("000004853362fb6250239995594ad39ac6696c5094e332a8e793bfbc4a2f1d46");
         consensus.ProgPostforkTime = 1531086099;
 
+        consensus.ProgPow2ndForkHeight = 550948; // Around 07/7/2018 12:00 UTC
+        consensus.ProgPow2ndPostforkBlock = uint256S("000004853362fb6250239995594ad39ac6696c5094e332a8e793bfbc4a2f1d46");
+        consensus.ProgPow2ndPostforkTime = 1531086099;
+
         consensus.powLimit = uint256S("0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.powLimitStart = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.powLimitProgStart = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -160,8 +164,8 @@ public:
         pchMessageStart[1] = 0x47;
         pchMessageStart[2] = 0x6d;
         pchMessageStart[3] = 0x44;
-        nDefaultPort = 8333; // different port than Bitcoin
-        nBitcoinDefaultPort = 8333;
+        nDefaultPort = 8338; // different port than Bitcoin
+        nBitcoinDefaultPort = 8338;
         nPruneAfterHeight = 100000;
         const size_t N = 200, K = 9;
         BOOST_STATIC_ASSERT(equihash_parameters_acceptable(N, K));
