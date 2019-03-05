@@ -18,8 +18,6 @@
 #include "crypto/progpow/endianness.hpp"
 #include "streams.h"
 
-#define ALGORITHM_CHANGE_HEIGHT 550948  //must be same with params
-
 //get block header progpow hash based header, nonce and mix hash
 uint256 getBlockHeaderProgPowHash(const CBlockHeader *pblock)
 {

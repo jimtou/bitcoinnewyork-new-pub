@@ -3239,6 +3239,9 @@ bool ProcessNewBlockHeaders(const std::vector<CBlockHeader>& headers, CValidatio
             if (ppindex) {
                 *ppindex = pindex;
             }
+            LogPrintf("%s: new header best=%s height=%d date='%s'\n", __func__,
+                pindex->GetBlockHash().ToString(), pindex->nHeight,
+                DateTimeStrFormat("%Y-%m-%d %H:%M:%S", pindex->GetBlockTime()));
         }
     }
     NotifyHeaderTip();
